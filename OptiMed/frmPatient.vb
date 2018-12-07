@@ -36,7 +36,7 @@ Public Class frmPatient
     End Sub
 
     Private Function UserExist(ByVal sUserName As String) As Boolean
-        Dim cmd = New SqlCommand("SELECT * FROM db_users WHERE (login=@login)")
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Uzytkownicy WHERE (login=@login)")
 
         cmd.Connection = oAdmin.Connection
         cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = sUserName
@@ -51,7 +51,7 @@ Public Class frmPatient
         Return False
     End Function
     Private Function AddUser() As Boolean
-        Dim sql As String = "INSERT INTO db_users(login,password,role_id) VALUES (@login,@password,@role_id); SELECT SCOPE_IDENTITY()"
+        Dim sql As String = "INSERT INTO optimed.Uzytkownicy(login,haslo,idroli) VALUES (@login,@password,@role_id); SELECT SCOPE_IDENTITY()"
 
         Dim sqlCom As New SqlCommand(sql, oAdmin.Connection)
 
@@ -78,7 +78,9 @@ Public Class frmPatient
 
     Private Function AddLekarz(ByVal idUser As Integer) As Boolean
 
-        Dim sqlLekarz As String = "INSERT INTO Pacjenci(IdUzytkownika,Imie,Nazwisko,Specjalizacja,NrLicencji) VALUES (@IdUzytkownika,@Imie,@Nazwisko,@Specjalizacja,@NrLicencji);"
+        Dim sqlLekarz As String = "INSERT INTO " &
+            "optimed.Pacjenci(IdUzytkownika,Imie,Nazwisko,DataUrodzenia,KodPocztowy,Miejscowosc) " &
+            "VALUES (@IdUzytkownika,@Imie,@Nazwisko,@DataUrodzenia,@KodPocztowy,@Miejscowosc,);"
         'dokonczyc dla Pacjenta
         Dim sqlCom As New SqlCommand(sqlLekarz, oAdmin.Connection)
 
@@ -87,10 +89,22 @@ Public Class frmPatient
         sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
         sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
         sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
-        'sqlCom.Parameters.Add("@Specjalizacja", SqlDbType.VarChar).Value = cmbSpec.Text
-        'sqlCom.Parameters.Add("@NrLicencji", SqlDbType.VarChar).Value = mskNLicencji.Text
+        sqlCom.Parameters.Add("@DataUrodzenia", SqlDbType.Int).Value = Trim(dtDUrodzenia.Value.ToShortDateString)
+        sqlCom.Parameters.Add("@KodPocztowy", SqlDbType.VarChar).Value = Trim(txtKodP.Text)
+        sqlCom.Parameters.Add("@Miejscowosc", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
+        sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
+        sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
+        sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
+        sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
+        sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
+        sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
 
-
+      ,[Ulica]
+      ,[Numer]
+      ,[Pesel]
+      ,[Email]
+      ,[Telefon]
+      ,[TelKom]
 
         Try
 

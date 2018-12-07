@@ -25,7 +25,7 @@ Public Class frmDoctor
     End Sub
 
     Private Function UserExist(ByVal sUserName As String) As Boolean
-        Dim cmd = New SqlCommand("SELECT * FROM db_users WHERE (login=@login)")
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Uzytkownicy WHERE (Login=@login)")
 
         cmd.Connection = oAdmin.Connection
         cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = sUserName
@@ -40,7 +40,7 @@ Public Class frmDoctor
         Return False
     End Function
     Private Function AddUser() As Boolean
-        Dim sql As String = "INSERT INTO db_users(login,password,role_id) VALUES (@login,@password,@role_id); SELECT SCOPE_IDENTITY()"
+        Dim sql As String = "INSERT INTO optimed.Uzytkownicy(Login,Haslo,IdRoli) VALUES (@login,@password,@role_id); SELECT SCOPE_IDENTITY()"
 
         Dim sqlCom As New SqlCommand(sql, oAdmin.Connection)
 
@@ -67,7 +67,7 @@ Public Class frmDoctor
 
     Private Function AddLekarz(ByVal idUser As Integer) As Boolean
 
-        Dim sqlLekarz As String = "INSERT INTO Lekarze(IdUzytkownika,Imie,Nazwisko,Specjalizacja,NrLicencji) VALUES (@IdUzytkownika,@Imie,@Nazwisko,@Specjalizacja,@NrLicencji);"
+        Dim sqlLekarz As String = "INSERT INTO optimed.Lekarze(IdUzytkownika,Imie,Nazwisko,Specjalizacja,NrLicencji) VALUES (@IdUzytkownika,@Imie,@Nazwisko,@Specjalizacja,@NrLicencji);"
 
         Dim sqlCom As New SqlCommand(sqlLekarz, oAdmin.Connection)
 

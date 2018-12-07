@@ -42,6 +42,7 @@
         col1.DataPropertyName = "Id"
         col1.HeaderText = "id"
         col1.Name = "id"
+        col1.Visible = False
         dgView.Columns.Add(col1)
         Dim col2 As New DataGridViewTextBoxColumn
         col2.DataPropertyName = "NrLicencji"
@@ -54,20 +55,15 @@
         col3.Name = "Imie"
         dgView.Columns.Add(col3)
         Dim col4 As New DataGridViewTextBoxColumn
-        col4.DataPropertyName = "Imie"
-        col4.HeaderText = "Imię"
-        col4.Name = "Imie"
+        col4.DataPropertyName = "Nazwisko"
+        col4.HeaderText = "Nazwisko"
+        col4.Name = "Nazwisko"
         dgView.Columns.Add(col4)
         Dim col5 As New DataGridViewTextBoxColumn
-        col5.DataPropertyName = "Nazwisko"
-        col5.HeaderText = "Nazwisko"
-        col5.Name = "Nazwisko"
+        col5.DataPropertyName = "Specjalizacja"
+        col5.HeaderText = "Specjalizacja"
+        col5.Name = "Specjalizacja"
         dgView.Columns.Add(col5)
-        Dim col6 As New DataGridViewTextBoxColumn
-        col6.DataPropertyName = "Specjalizacja"
-        col6.HeaderText = "Specjalizacja"
-        col6.Name = "Specjalizacja"
-        dgView.Columns.Add(col6)
 
 
         Dim oSQL As New clsSQL
@@ -76,7 +72,7 @@
         dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         dgView.SelectionMode = DataGridViewSelectionMode.FullRowSelect
 
-        'dgView.DataSource = oSQL.UserList.Tables(0)
+        dgView.DataSource = oSQL.ListaLekarzy.Tables(0)
 
     End Sub
 
@@ -136,5 +132,15 @@
     Private Sub tsbExit_Click(sender As Object, e As EventArgs) Handles tsbExit.Click
         Me.Dispose()
         End
+    End Sub
+
+    Private Sub DodajNowegoLekarzaToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DodajNowegoLekarzaToolStripMenuItem.Click
+        Dim frmDoc As New frmDoctor
+        frmDoc.ShowDialog()
+    End Sub
+
+    Private Sub RejestracjaPacjentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RejestracjaPacjentaToolStripMenuItem.Click
+        Dim frmP As New frmPatient(1, 3)
+        frmP.Show()
     End Sub
 End Class

@@ -99,4 +99,23 @@ Public Class clsSQL
 
         oAdmin.Connection.Close()
     End Function
+    Public Function ListaLekarzy() As DataSet
+        Dim sqlDA As New SqlDataAdapter
+        Dim sqlComm As New SqlCommand
+        Dim dbDataSet As New DataSet
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Lekarze")
+
+        cmd.Connection = oAdmin.Connection
+
+
+        oAdmin.Connection.Open()
+
+
+        sqlDA.SelectCommand = cmd
+        sqlDA.Fill(dbDataSet)
+
+        Return dbDataSet
+
+        oAdmin.Connection.Close()
+    End Function
 End Class
