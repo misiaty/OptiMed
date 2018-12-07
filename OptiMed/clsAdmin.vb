@@ -62,7 +62,8 @@ End Class
 
 Public Class clsSQL
     Public Function UserExist(ByVal sUserName As String, ByVal sPassword As String) As Boolean
-        Dim cmd = New SqlCommand("SELECT * FROM db_users WHERE (login=@login AND password=@password)")
+        'Dim cmd = New SqlCommand("SELECT * FROM db_users WHERE (login=@login AND password=@password)")
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Uzytkownicy WHERE (Login=@login AND Haslo=@password)")
 
         cmd.Connection = oAdmin.Connection
         cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = sUserName
@@ -72,22 +73,24 @@ Public Class clsSQL
         While result.Read
             If result.HasRows = True Then
                 oAdmin.IdRoli = result(3)
+                oAdmin.Connection.Close()
                 Return True
             End If
         End While
+        oAdmin.Connection.Close()
         Return False
     End Function
     Public Function UserList() As DataSet
         Dim sqlDA As New SqlDataAdapter
         Dim sqlComm As New SqlCommand
         Dim dbDataSet As New DataSet
-        Dim cmd = New SqlCommand("SELECT * FROM db_users u JOIN db_roles r ON (u.role_id = r.id)")
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Uzytkownicy u JOIN optimed.Role r ON (u.IdRoli = r.Id)")
 
         cmd.Connection = oAdmin.Connection
 
-        If oAdmin.Connection.State <> ConnectionState.Open Then
-            oAdmin.Connection.Open()
-        End If
+
+        oAdmin.Connection.Open()
+
 
         sqlDA.SelectCommand = cmd
         sqlDA.Fill(dbDataSet)

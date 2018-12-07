@@ -15,14 +15,14 @@
         dgView.Columns.Clear()
 
         Dim col1 As New DataGridViewTextBoxColumn
-        col1.DataPropertyName = "login"
+        col1.DataPropertyName = "Login"
         col1.HeaderText = "Nazwa użytkownika"
-        col1.Name = "UserName"
+        col1.Name = "Login"
         dgView.Columns.Add(col1)
         Dim col2 As New DataGridViewTextBoxColumn
-        col2.DataPropertyName = "roleDesc"
+        col2.DataPropertyName = "Rola"
         col2.HeaderText = "Rola użytkownika"
-        col2.Name = "rola"
+        col2.Name = "Rola"
         dgView.Columns.Add(col2)
 
         Dim oSQL As New clsSQL
@@ -32,6 +32,51 @@
         dgView.SelectionMode = DataGridViewSelectionMode.FullRowSelect
 
         dgView.DataSource = oSQL.UserList.Tables(0)
+
+    End Sub
+    Private Sub ListaLekarzy()
+
+        dgView.Columns.Clear()
+
+        Dim col1 As New DataGridViewTextBoxColumn
+        col1.DataPropertyName = "Id"
+        col1.HeaderText = "id"
+        col1.Name = "id"
+        dgView.Columns.Add(col1)
+        Dim col2 As New DataGridViewTextBoxColumn
+        col2.DataPropertyName = "NrLicencji"
+        col2.HeaderText = "Numer licencji"
+        col2.Name = "NrLicencji"
+        dgView.Columns.Add(col2)
+        Dim col3 As New DataGridViewTextBoxColumn
+        col3.DataPropertyName = "Imie"
+        col3.HeaderText = "Imię"
+        col3.Name = "Imie"
+        dgView.Columns.Add(col3)
+        Dim col4 As New DataGridViewTextBoxColumn
+        col4.DataPropertyName = "Imie"
+        col4.HeaderText = "Imię"
+        col4.Name = "Imie"
+        dgView.Columns.Add(col4)
+        Dim col5 As New DataGridViewTextBoxColumn
+        col5.DataPropertyName = "Nazwisko"
+        col5.HeaderText = "Nazwisko"
+        col5.Name = "Nazwisko"
+        dgView.Columns.Add(col5)
+        Dim col6 As New DataGridViewTextBoxColumn
+        col6.DataPropertyName = "Specjalizacja"
+        col6.HeaderText = "Specjalizacja"
+        col6.Name = "Specjalizacja"
+        dgView.Columns.Add(col6)
+
+
+        Dim oSQL As New clsSQL
+
+        dgView.AutoGenerateColumns = False
+        dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dgView.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+
+        'dgView.DataSource = oSQL.UserList.Tables(0)
 
     End Sub
 
@@ -58,7 +103,7 @@
         ToolStripButton3.ForeColor = Color.Red
     End Sub
 
-    Private Sub DodajNowegoLekarzaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DodajNowegoLekarzaToolStripMenuItem.Click
+    Private Sub DodajNowegoLekarzaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim frmDoc As New frmDoctor
         frmDoc.ShowDialog()
     End Sub
@@ -70,5 +115,26 @@
                 mnuAdmin.Visible = False
 
         End Select
+    End Sub
+
+    Private Sub ListaUżytkownikówToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaUżytkownikówToolStripMenuItem.Click
+        PokazUzytkownikow()
+
+    End Sub
+
+    Private Sub ListaLekarzyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaLekarzyToolStripMenuItem.Click
+        ListaLekarzy()
+    End Sub
+
+
+
+    Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Me.Dispose()
+        End
+    End Sub
+
+    Private Sub tsbExit_Click(sender As Object, e As EventArgs) Handles tsbExit.Click
+        Me.Dispose()
+        End
     End Sub
 End Class
