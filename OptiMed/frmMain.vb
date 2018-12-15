@@ -140,7 +140,7 @@
     End Sub
 
     Private Sub RejestracjaPacjentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RejestracjaPacjentaToolStripMenuItem.Click
-        Dim frmP As New frmPatient(1, 3)
+        Dim frmP As New frmPatient(0, 3)
         frmP.Show()
     End Sub
 End Class

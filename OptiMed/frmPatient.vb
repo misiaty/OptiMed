@@ -1,9 +1,11 @@
 ﻿Imports System.Windows.Forms
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.ComponentModel
+
 Public Class frmPatient
 
-    Dim NewRecordID As Integer
+    'Dim NewRecordID As Integer
     Dim idTryb As Integer
     Public Sub New(ByVal Tryb As Integer, ByVal Rola As Integer)
 
@@ -35,52 +37,13 @@ Public Class frmPatient
         End Select
     End Sub
 
-    Private Function UserExist(ByVal sUserName As String) As Boolean
-        Dim cmd = New SqlCommand("SELECT * FROM optimed.Uzytkownicy WHERE (login=@login)")
-
-        cmd.Connection = oAdmin.Connection
-        cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = sUserName
-        If oAdmin.Connection.State <> ConnectionState.Open Then
-            oAdmin.Connection.Open()
-        End If
-        Dim result = cmd.ExecuteScalar
-        If Not IsNothing(result) Then
-            Return True
-
-        End If
-        Return False
-    End Function
-    Private Function AddUser() As Boolean
-        Dim sql As String = "INSERT INTO optimed.Uzytkownicy(login,haslo,idroli) VALUES (@login,@password,@role_id); SELECT SCOPE_IDENTITY()"
-
-        Dim sqlCom As New SqlCommand(sql, oAdmin.Connection)
-
-        If Not oAdmin.Connection.State = ConnectionState.Open Then oAdmin.Connection.Open()
-
-        sqlCom.Parameters.Add("@login", SqlDbType.VarChar).Value = txtLogin.Text
-        sqlCom.Parameters.Add("@password", SqlDbType.NVarChar).Value = txtPassword.Text
-        sqlCom.Parameters.Add("@role_id", SqlDbType.Int).Value = 4
-
-
-
-        Try
-
-            NewRecordID = sqlCom.ExecuteScalar()
-
-            Return True
-        Catch ex As Exception
-            Return False
-        End Try
-
-
-
-    End Function
-
-    Private Function AddLekarz(ByVal idUser As Integer) As Boolean
+    Private Function DodajPacjenta(ByVal idUser As Integer) As Boolean
 
         Dim sqlLekarz As String = "INSERT INTO " &
-            "optimed.Pacjenci(IdUzytkownika,Imie,Nazwisko,DataUrodzenia,KodPocztowy,Miejscowosc) " &
-            "VALUES (@IdUzytkownika,@Imie,@Nazwisko,@DataUrodzenia,@KodPocztowy,@Miejscowosc,);"
+            "optimed.Pacjenci(IdUzytkownika,Imie,Nazwisko,DataUrodzenia,KodPocztowy,Miejscowosc," &
+            "Ulica,Numer,Pesel,Email,Telefon,TelKom) " &
+            "VALUES (@IdUzytkownika,@Imie,@Nazwisko,@DataUrodzenia,@KodPocztowy,@Miejscowosc," &
+            "@Ulica,@Numer,@Pesel,@Email,@Telefon,@TelKom);"
         'dokonczyc dla Pacjenta
         Dim sqlCom As New SqlCommand(sqlLekarz, oAdmin.Connection)
 
@@ -91,20 +54,13 @@ Public Class frmPatient
         sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
         sqlCom.Parameters.Add("@DataUrodzenia", SqlDbType.Int).Value = Trim(dtDUrodzenia.Value.ToShortDateString)
         sqlCom.Parameters.Add("@KodPocztowy", SqlDbType.VarChar).Value = Trim(txtKodP.Text)
-        sqlCom.Parameters.Add("@Miejscowosc", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
-        sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
-        sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
-        sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
-        sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
-        sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
-        sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
-
-      ,[Ulica]
-      ,[Numer]
-      ,[Pesel]
-      ,[Email]
-      ,[Telefon]
-      ,[TelKom]
+        sqlCom.Parameters.Add("@Miejscowosc", SqlDbType.VarChar).Value = Trim(txtMiasto.Text)
+        sqlCom.Parameters.Add("@Ulica", SqlDbType.Int).Value = Trim(txtUlica.Text)
+        sqlCom.Parameters.Add("@Numer", SqlDbType.VarChar).Value = Trim(txtNrDomu.Text) & ";" & Trim(txtLokal.Text)
+        sqlCom.Parameters.Add("@Pesel", SqlDbType.VarChar).Value = Trim(mskPesel.Text)
+        sqlCom.Parameters.Add("@Email", SqlDbType.Int).Value = Trim(txtEmail.Text)
+        sqlCom.Parameters.Add("@Telefon", SqlDbType.VarChar).Value = Trim(txtTel.Text)
+        sqlCom.Parameters.Add("@TelKom", SqlDbType.VarChar).Value = Trim(mskTelKom.Text)
 
         Try
 
@@ -120,5 +76,42 @@ Public Class frmPatient
 
     Private Sub frmPatient_Load(sender As Object, e As EventArgs) Handles Me.Load
         UstawOkno(idTryb)
+    End Sub
+
+    Private Sub txtEmail_Validating(sender As Object, e As CancelEventArgs) Handles txtEmail.Validating
+        If Not PoprawnyEmail(Trim(txtEmail.Text)) Then
+            txtEmail.BackColor = Color.Red
+            lblEmailError.Visible = True
+            txtEmail.Select()
+
+        Else
+            txtEmail.BackColor = DefaultBackColor
+            lblEmailError.Visible = False
+        End If
+    End Sub
+
+    Private Sub mskPesel_Validating(sender As Object, e As CancelEventArgs) Handles mskPesel.Validating
+        If Not SprawdzPESEL(mskPesel.Text) Then
+            mskPesel.BackColor = Color.Red
+            mskPesel.Select()
+        Else
+            mskPesel.BackColor = DefaultBackColor
+            dtDUrodzenia.Value = DataUrodzeniaPESEL(mskPesel.Text)
+        End If
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        If UserExist(Trim(txtLogin.Text)) Then
+            MsgBox("Użytkownik o takiej nazwie logowania już istnieje." & vbCrLf &
+                   "Proszę wprowdzić inną nazwę", vbInformation + vbOKOnly, "Błąd")
+            txtLogin.Select()
+        End If
+        If AddUser(Trim(txtLogin.Text), Trim(txtPassword.Text), 4) Then
+            If DodajPacjenta(NewRecordID) Then
+                MsgBox("Lekarz został poprawnie dodany.")
+            End If
+        End If
+        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.Close()
     End Sub
 End Class
