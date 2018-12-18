@@ -201,10 +201,10 @@
     End Sub
 
     Private Sub tsbExit_Click(sender As Object, e As EventArgs) Handles tsbExit.Click
-        Dim Pytanie As New Tools
-        If Pytanie.ZamknacProgram Then
-            Application.Exit()
-        End If
+        'Dim Pytanie As New Tools
+        'If Pytanie.ZamknacProgram Then
+        Application.Exit()
+        'End If
     End Sub
 
     Private Sub DodajNowegoLekarzaToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles DodajNowegoLekarzaToolStripMenuItem.Click
@@ -242,7 +242,7 @@ Public Class Tools
     Public Function ZamknacProgram() As Boolean
         Dim Result As Integer = MsgBox("Czy chcesz zakończyć działanie programu?", vbYesNo + vbQuestion, "Koniec")
         Select Case Result
-            Case vbOK
+            Case vbYes
                 Return True
             Case vbNo
                 Return False

@@ -107,6 +107,7 @@ Public Class frmPacjent
             txtPassword.BackColor = Color.Red
             txtPassword2.BackColor = Color.Red
             txtPassword.Select()
+            Exit Sub
         Else
             txtPassword.BackColor = DefaultBackColor
             txtPassword2.BackColor = DefaultBackColor
@@ -116,6 +117,7 @@ Public Class frmPacjent
             MsgBox("Użytkownik o takiej nazwie logowania już istnieje." & vbCrLf &
                    "Proszę wprowdzić inną nazwę", vbInformation + vbOKOnly, "Błąd")
             txtLogin.Select()
+            Exit Sub
         End If
         If AddUser(Trim(txtLogin.Text), Trim(txtPassword.Text), 4) Then
             If DodajPacjenta(NewRecordID) Then

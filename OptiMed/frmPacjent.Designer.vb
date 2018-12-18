@@ -26,6 +26,8 @@ Partial Class frmPacjent
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtPassword2 = New System.Windows.Forms.TextBox()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -50,6 +52,8 @@ Partial Class frmPacjent
         Me.txtUlica = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.dtDUrodzenia = New System.Windows.Forms.DateTimePicker()
         Me.txtNazwisko = New System.Windows.Forms.TextBox()
         Me.txtImie = New System.Windows.Forms.TextBox()
@@ -61,6 +65,21 @@ Partial Class frmPacjent
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.dgWizyty = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.grLeki = New System.Windows.Forms.GroupBox()
+        Me.dgLeki = New System.Windows.Forms.DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nazwa = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dawka = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.txtOpis = New System.Windows.Forms.TextBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
@@ -74,25 +93,6 @@ Partial Class frmPacjent
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.btnRegister = New System.Windows.Forms.Button()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtPassword2 = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.grLeki = New System.Windows.Forms.GroupBox()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.txtOpis = New System.Windows.Forms.TextBox()
-        Me.dgLeki = New System.Windows.Forms.DataGridView()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nazwa = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dawka = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -103,15 +103,15 @@ Partial Class frmPacjent
         Me.TabPage2.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.dgWizyty, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.grLeki.SuspendLayout()
+        CType(Me.dgLeki, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox5.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.grLeki.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
-        CType(Me.dgLeki, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -129,7 +129,7 @@ Partial Class frmPacjent
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.39785!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.602151!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(740, 595)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(734, 634)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TabControl1
@@ -143,7 +143,7 @@ Partial Class frmPacjent
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(736, 502)
+        Me.TabControl1.Size = New System.Drawing.Size(730, 537)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -152,11 +152,11 @@ Partial Class frmPacjent
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(2)
-        Me.TabPage1.Size = New System.Drawing.Size(728, 473)
+        Me.TabPage1.Size = New System.Drawing.Size(722, 499)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Dane podstawowe"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -175,17 +175,35 @@ Partial Class frmPacjent
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox4.Size = New System.Drawing.Size(724, 90)
+        Me.GroupBox4.Size = New System.Drawing.Size(718, 90)
         Me.GroupBox4.TabIndex = 8
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Dane logowania:"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(371, 62)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(138, 28)
+        Me.Label17.TabIndex = 5
+        Me.Label17.Text = "Powtórz hasło:"
+        '
+        'txtPassword2
+        '
+        Me.txtPassword2.Location = New System.Drawing.Point(473, 59)
+        Me.txtPassword2.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtPassword2.Name = "txtPassword2"
+        Me.txtPassword2.Size = New System.Drawing.Size(205, 34)
+        Me.txtPassword2.TabIndex = 4
         '
         'txtPassword
         '
         Me.txtPassword.Location = New System.Drawing.Point(149, 59)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(205, 25)
+        Me.txtPassword.Size = New System.Drawing.Size(205, 34)
         Me.txtPassword.TabIndex = 3
         '
         'txtLogin
@@ -193,7 +211,7 @@ Partial Class frmPacjent
         Me.txtLogin.Location = New System.Drawing.Point(149, 29)
         Me.txtLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLogin.Name = "txtLogin"
-        Me.txtLogin.Size = New System.Drawing.Size(205, 25)
+        Me.txtLogin.Size = New System.Drawing.Size(205, 34)
         Me.txtLogin.TabIndex = 2
         '
         'Label14
@@ -202,7 +220,7 @@ Partial Class frmPacjent
         Me.Label14.Location = New System.Drawing.Point(19, 62)
         Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(47, 19)
+        Me.Label14.Size = New System.Drawing.Size(65, 28)
         Me.Label14.TabIndex = 1
         Me.Label14.Text = "Hasło:"
         '
@@ -212,7 +230,7 @@ Partial Class frmPacjent
         Me.Label13.Location = New System.Drawing.Point(19, 31)
         Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(132, 19)
+        Me.Label13.Size = New System.Drawing.Size(188, 28)
         Me.Label13.TabIndex = 0
         Me.Label13.Text = "Nazwa użytkownika:"
         '
@@ -231,7 +249,7 @@ Partial Class frmPacjent
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox3.Size = New System.Drawing.Size(724, 123)
+        Me.GroupBox3.Size = New System.Drawing.Size(718, 123)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Dane kontaktowe:"
@@ -243,7 +261,7 @@ Partial Class frmPacjent
         Me.lblEmailError.ForeColor = System.Drawing.Color.Red
         Me.lblEmailError.Location = New System.Drawing.Point(318, 29)
         Me.lblEmailError.Name = "lblEmailError"
-        Me.lblEmailError.Size = New System.Drawing.Size(250, 17)
+        Me.lblEmailError.Size = New System.Drawing.Size(336, 25)
         Me.lblEmailError.TabIndex = 6
         Me.lblEmailError.Text = "Wprowadź poprawny adres email."
         Me.lblEmailError.Visible = False
@@ -255,7 +273,7 @@ Partial Class frmPacjent
         Me.Label10.Location = New System.Drawing.Point(17, 29)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(44, 19)
+        Me.Label10.Size = New System.Drawing.Size(63, 28)
         Me.Label10.TabIndex = 0
         Me.Label10.Text = "Email:"
         '
@@ -265,7 +283,7 @@ Partial Class frmPacjent
         Me.mskTelKom.Margin = New System.Windows.Forms.Padding(2)
         Me.mskTelKom.Mask = "000-000-000"
         Me.mskTelKom.Name = "mskTelKom"
-        Me.mskTelKom.Size = New System.Drawing.Size(205, 25)
+        Me.mskTelKom.Size = New System.Drawing.Size(205, 34)
         Me.mskTelKom.TabIndex = 5
         '
         'Label11
@@ -275,7 +293,7 @@ Partial Class frmPacjent
         Me.Label11.Location = New System.Drawing.Point(19, 59)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(55, 19)
+        Me.Label11.Size = New System.Drawing.Size(78, 28)
         Me.Label11.TabIndex = 1
         Me.Label11.Text = "Telefon:"
         '
@@ -286,7 +304,7 @@ Partial Class frmPacjent
         Me.Label12.Location = New System.Drawing.Point(16, 97)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(89, 19)
+        Me.Label12.Size = New System.Drawing.Size(126, 28)
         Me.Label12.TabIndex = 2
         Me.Label12.Text = "Telefon kom.:"
         '
@@ -296,7 +314,7 @@ Partial Class frmPacjent
         Me.txtTel.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTel.Mask = "(00) 000-00-00"
         Me.txtTel.Name = "txtTel"
-        Me.txtTel.Size = New System.Drawing.Size(205, 25)
+        Me.txtTel.Size = New System.Drawing.Size(205, 34)
         Me.txtTel.TabIndex = 4
         '
         'txtEmail
@@ -304,7 +322,7 @@ Partial Class frmPacjent
         Me.txtEmail.Location = New System.Drawing.Point(105, 27)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(207, 25)
+        Me.txtEmail.Size = New System.Drawing.Size(207, 34)
         Me.txtEmail.TabIndex = 3
         '
         'GroupBox2
@@ -325,7 +343,7 @@ Partial Class frmPacjent
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(724, 122)
+        Me.GroupBox2.Size = New System.Drawing.Size(718, 122)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Dane adresowe:"
@@ -336,7 +354,7 @@ Partial Class frmPacjent
         Me.txtKodP.Margin = New System.Windows.Forms.Padding(2)
         Me.txtKodP.Mask = "00-000"
         Me.txtKodP.Name = "txtKodP"
-        Me.txtKodP.Size = New System.Drawing.Size(99, 25)
+        Me.txtKodP.Size = New System.Drawing.Size(99, 34)
         Me.txtKodP.TabIndex = 9
         Me.txtKodP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -347,7 +365,7 @@ Partial Class frmPacjent
         Me.Label9.Location = New System.Drawing.Point(19, 53)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(88, 19)
+        Me.Label9.Size = New System.Drawing.Size(126, 28)
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Miejscowość:"
         '
@@ -356,7 +374,7 @@ Partial Class frmPacjent
         Me.txtMiasto.Location = New System.Drawing.Point(117, 51)
         Me.txtMiasto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMiasto.Name = "txtMiasto"
-        Me.txtMiasto.Size = New System.Drawing.Size(207, 25)
+        Me.txtMiasto.Size = New System.Drawing.Size(207, 34)
         Me.txtMiasto.TabIndex = 8
         '
         'Label5
@@ -366,7 +384,7 @@ Partial Class frmPacjent
         Me.Label5.Location = New System.Drawing.Point(19, 21)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 19)
+        Me.Label5.Size = New System.Drawing.Size(59, 28)
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "Ulica:"
         '
@@ -375,7 +393,7 @@ Partial Class frmPacjent
         Me.txtLokal.Location = New System.Drawing.Point(649, 19)
         Me.txtLokal.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLokal.Name = "txtLokal"
-        Me.txtLokal.Size = New System.Drawing.Size(57, 25)
+        Me.txtLokal.Size = New System.Drawing.Size(57, 34)
         Me.txtLokal.TabIndex = 7
         '
         'Label6
@@ -385,7 +403,7 @@ Partial Class frmPacjent
         Me.Label6.Location = New System.Drawing.Point(337, 21)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(94, 19)
+        Me.Label6.Size = New System.Drawing.Size(133, 28)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "Numer domu:"
         '
@@ -394,7 +412,7 @@ Partial Class frmPacjent
         Me.txtNrDomu.Location = New System.Drawing.Point(434, 19)
         Me.txtNrDomu.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNrDomu.Name = "txtNrDomu"
-        Me.txtNrDomu.Size = New System.Drawing.Size(72, 25)
+        Me.txtNrDomu.Size = New System.Drawing.Size(72, 34)
         Me.txtNrDomu.TabIndex = 6
         '
         'Label7
@@ -404,7 +422,7 @@ Partial Class frmPacjent
         Me.Label7.Location = New System.Drawing.Point(519, 23)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(124, 19)
+        Me.Label7.Size = New System.Drawing.Size(176, 28)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Numer mieszkania:"
         '
@@ -413,7 +431,7 @@ Partial Class frmPacjent
         Me.txtUlica.Location = New System.Drawing.Point(117, 21)
         Me.txtUlica.Margin = New System.Windows.Forms.Padding(2)
         Me.txtUlica.Name = "txtUlica"
-        Me.txtUlica.Size = New System.Drawing.Size(207, 25)
+        Me.txtUlica.Size = New System.Drawing.Size(207, 34)
         Me.txtUlica.TabIndex = 5
         '
         'Label8
@@ -423,7 +441,7 @@ Partial Class frmPacjent
         Me.Label8.Location = New System.Drawing.Point(19, 84)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(98, 19)
+        Me.Label8.Size = New System.Drawing.Size(142, 28)
         Me.Label8.TabIndex = 3
         Me.Label8.Text = "Kod pocztowy:"
         '
@@ -445,10 +463,32 @@ Partial Class frmPacjent
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(724, 122)
+        Me.GroupBox1.Size = New System.Drawing.Size(718, 122)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Dane identyfikacyjne:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.Label16.Location = New System.Drawing.Point(184, 65)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(18, 25)
+        Me.Label16.TabIndex = 28
+        Me.Label16.Text = "."
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(126, 65)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(56, 28)
+        Me.Label15.TabIndex = 27
+        Me.Label15.Text = "Płeć: "
         '
         'dtDUrodzenia
         '
@@ -457,7 +497,7 @@ Partial Class frmPacjent
         Me.dtDUrodzenia.Location = New System.Drawing.Point(496, 30)
         Me.dtDUrodzenia.Margin = New System.Windows.Forms.Padding(2)
         Me.dtDUrodzenia.Name = "dtDUrodzenia"
-        Me.dtDUrodzenia.Size = New System.Drawing.Size(151, 29)
+        Me.dtDUrodzenia.Size = New System.Drawing.Size(151, 40)
         Me.dtDUrodzenia.TabIndex = 26
         '
         'txtNazwisko
@@ -465,7 +505,7 @@ Partial Class frmPacjent
         Me.txtNazwisko.Location = New System.Drawing.Point(496, 90)
         Me.txtNazwisko.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNazwisko.Name = "txtNazwisko"
-        Me.txtNazwisko.Size = New System.Drawing.Size(114, 25)
+        Me.txtNazwisko.Size = New System.Drawing.Size(114, 33)
         Me.txtNazwisko.TabIndex = 25
         '
         'txtImie
@@ -473,7 +513,7 @@ Partial Class frmPacjent
         Me.txtImie.Location = New System.Drawing.Point(187, 90)
         Me.txtImie.Margin = New System.Windows.Forms.Padding(2)
         Me.txtImie.Name = "txtImie"
-        Me.txtImie.Size = New System.Drawing.Size(137, 25)
+        Me.txtImie.Size = New System.Drawing.Size(137, 33)
         Me.txtImie.TabIndex = 24
         '
         'Label4
@@ -483,7 +523,7 @@ Partial Class frmPacjent
         Me.Label4.Location = New System.Drawing.Point(383, 93)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 19)
+        Me.Label4.Size = New System.Drawing.Size(99, 28)
         Me.Label4.TabIndex = 23
         Me.Label4.Text = "Nazwisko:"
         '
@@ -494,7 +534,7 @@ Partial Class frmPacjent
         Me.Label3.Location = New System.Drawing.Point(126, 93)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(38, 19)
+        Me.Label3.Size = New System.Drawing.Size(53, 28)
         Me.Label3.TabIndex = 22
         Me.Label3.Text = "Imię:"
         '
@@ -505,7 +545,7 @@ Partial Class frmPacjent
         Me.Label2.Location = New System.Drawing.Point(383, 36)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 19)
+        Me.Label2.Size = New System.Drawing.Size(149, 28)
         Me.Label2.TabIndex = 20
         Me.Label2.Text = "Data urodzenia:"
         '
@@ -516,7 +556,7 @@ Partial Class frmPacjent
         Me.mskPesel.Margin = New System.Windows.Forms.Padding(2)
         Me.mskPesel.Mask = "00000000000"
         Me.mskPesel.Name = "mskPesel"
-        Me.mskPesel.Size = New System.Drawing.Size(137, 29)
+        Me.mskPesel.Size = New System.Drawing.Size(137, 40)
         Me.mskPesel.TabIndex = 19
         Me.mskPesel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -527,18 +567,18 @@ Partial Class frmPacjent
         Me.Label1.Location = New System.Drawing.Point(126, 36)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 19)
+        Me.Label1.Size = New System.Drawing.Size(67, 28)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "PESEL:"
         '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.TableLayoutPanel2)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(2)
-        Me.TabPage2.Size = New System.Drawing.Size(728, 477)
+        Me.TabPage2.Size = New System.Drawing.Size(728, 464)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Wizyty odbyte"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -556,8 +596,8 @@ Partial Class frmPacjent
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(724, 473)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 473.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(724, 460)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'dgWizyty
@@ -569,180 +609,8 @@ Partial Class frmPacjent
         Me.dgWizyty.Margin = New System.Windows.Forms.Padding(2)
         Me.dgWizyty.Name = "dgWizyty"
         Me.dgWizyty.RowTemplate.Height = 28
-        Me.dgWizyty.Size = New System.Drawing.Size(339, 469)
+        Me.dgWizyty.Size = New System.Drawing.Size(339, 456)
         Me.dgWizyty.TabIndex = 0
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.TableLayoutPanel3)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(2)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(2)
-        Me.TabPage3.Size = New System.Drawing.Size(728, 489)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Wizyty zaplanowane"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView3, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(2, 2)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.65079!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.34921!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(724, 485)
-        Me.TableLayoutPanel3.TabIndex = 0
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.column6, Me.Column7, Me.Column8, Me.Column9})
-        Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView3.Location = New System.Drawing.Point(2, 2)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(2)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.RowTemplate.Height = 28
-        Me.DataGridView3.Size = New System.Drawing.Size(720, 401)
-        Me.DataGridView3.TabIndex = 0
-        '
-        'column6
-        '
-        Me.column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.column6.HeaderText = "Gabinet"
-        Me.column6.Name = "column6"
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column7.HeaderText = "Nazwisko lekarza"
-        Me.Column7.Name = "Column7"
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column8.HeaderText = "Data wizyty"
-        Me.Column8.Name = "Column8"
-        '
-        'Column9
-        '
-        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column9.HeaderText = "Godzina wizyty"
-        Me.Column9.Name = "Column9"
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Controls.Add(Me.Button6)
-        Me.FlowLayoutPanel2.Controls.Add(Me.Button7)
-        Me.FlowLayoutPanel2.Controls.Add(Me.Button8)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(2, 407)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(2)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(720, 76)
-        Me.FlowLayoutPanel2.TabIndex = 0
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button6.Location = New System.Drawing.Point(2, 2)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 38)
-        Me.Button6.TabIndex = 0
-        Me.Button6.Text = "Dodaj"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button7.Location = New System.Drawing.Point(81, 2)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 38)
-        Me.Button7.TabIndex = 1
-        Me.Button7.Text = "Edytuj"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button8.Location = New System.Drawing.Point(160, 2)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(75, 38)
-        Me.Button8.TabIndex = 2
-        Me.Button8.Text = "Usuń"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(666, 556)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(72, 35)
-        Me.Button4.TabIndex = 1
-        Me.Button4.Text = "Zamknij"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'btnRegister
-        '
-        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegister.Location = New System.Drawing.Point(2, 508)
-        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(87, 35)
-        Me.btnRegister.TabIndex = 2
-        Me.btnRegister.Text = "Zarejestruj"
-        Me.btnRegister.UseVisualStyleBackColor = True
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(126, 65)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(41, 19)
-        Me.Label15.TabIndex = 27
-        Me.Label15.Text = "Płeć: "
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label16.Location = New System.Drawing.Point(184, 65)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(12, 16)
-        Me.Label16.TabIndex = 28
-        Me.Label16.Text = "."
-        '
-        'txtPassword2
-        '
-        Me.txtPassword2.Location = New System.Drawing.Point(473, 59)
-        Me.txtPassword2.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtPassword2.Name = "txtPassword2"
-        Me.txtPassword2.Size = New System.Drawing.Size(205, 25)
-        Me.txtPassword2.TabIndex = 4
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(371, 62)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(98, 19)
-        Me.Label17.TabIndex = 5
-        Me.Label17.Text = "Powtórz hasło:"
         '
         'Column1
         '
@@ -764,30 +632,8 @@ Partial Class frmPacjent
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(346, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(375, 467)
+        Me.Panel1.Size = New System.Drawing.Size(375, 454)
         Me.Panel1.TabIndex = 1
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.Controls.Add(Me.txtOpis)
-        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(375, 208)
-        Me.GroupBox5.TabIndex = 0
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Opis wizyty:"
-        '
-        'grLeki
-        '
-        Me.grLeki.Controls.Add(Me.dgLeki)
-        Me.grLeki.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grLeki.Location = New System.Drawing.Point(0, 208)
-        Me.grLeki.Name = "grLeki"
-        Me.grLeki.Size = New System.Drawing.Size(375, 214)
-        Me.grLeki.TabIndex = 1
-        Me.grLeki.TabStop = False
-        Me.grLeki.Text = "Zalecenia:"
         '
         'FlowLayoutPanel1
         '
@@ -845,14 +691,16 @@ Partial Class frmPacjent
         Me.Button5.Text = "Pokaż recepty"
         Me.Button5.UseVisualStyleBackColor = True
         '
-        'txtOpis
+        'grLeki
         '
-        Me.txtOpis.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtOpis.Location = New System.Drawing.Point(3, 19)
-        Me.txtOpis.Multiline = True
-        Me.txtOpis.Name = "txtOpis"
-        Me.txtOpis.Size = New System.Drawing.Size(369, 186)
-        Me.txtOpis.TabIndex = 0
+        Me.grLeki.Controls.Add(Me.dgLeki)
+        Me.grLeki.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grLeki.Location = New System.Drawing.Point(0, 208)
+        Me.grLeki.Name = "grLeki"
+        Me.grLeki.Size = New System.Drawing.Size(375, 214)
+        Me.grLeki.TabIndex = 1
+        Me.grLeki.TabStop = False
+        Me.grLeki.Text = "Zalecenia:"
         '
         'dgLeki
         '
@@ -860,9 +708,9 @@ Partial Class frmPacjent
         Me.dgLeki.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgLeki.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nazwa, Me.dawka})
         Me.dgLeki.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgLeki.Location = New System.Drawing.Point(3, 19)
+        Me.dgLeki.Location = New System.Drawing.Point(3, 26)
         Me.dgLeki.Name = "dgLeki"
-        Me.dgLeki.Size = New System.Drawing.Size(369, 192)
+        Me.dgLeki.Size = New System.Drawing.Size(369, 185)
         Me.dgLeki.TabIndex = 0
         '
         'id
@@ -881,11 +729,163 @@ Partial Class frmPacjent
         Me.dawka.HeaderText = "Dawka"
         Me.dawka.Name = "dawka"
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.txtOpis)
+        Me.GroupBox5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(375, 208)
+        Me.GroupBox5.TabIndex = 0
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Opis wizyty:"
+        '
+        'txtOpis
+        '
+        Me.txtOpis.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtOpis.Location = New System.Drawing.Point(3, 26)
+        Me.txtOpis.Multiline = True
+        Me.txtOpis.Name = "txtOpis"
+        Me.txtOpis.Size = New System.Drawing.Size(369, 179)
+        Me.txtOpis.TabIndex = 0
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.TableLayoutPanel3)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage3.Margin = New System.Windows.Forms.Padding(2)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(2)
+        Me.TabPage3.Size = New System.Drawing.Size(728, 464)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Wizyty zaplanowane"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 1
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.DataGridView3, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(2, 2)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(2)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.65079!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.34921!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(724, 460)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.column6, Me.Column7, Me.Column8, Me.Column9})
+        Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView3.Location = New System.Drawing.Point(2, 2)
+        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.RowTemplate.Height = 28
+        Me.DataGridView3.Size = New System.Drawing.Size(720, 380)
+        Me.DataGridView3.TabIndex = 0
+        '
+        'column6
+        '
+        Me.column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.column6.HeaderText = "Gabinet"
+        Me.column6.Name = "column6"
+        '
+        'Column7
+        '
+        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column7.HeaderText = "Nazwisko lekarza"
+        Me.Column7.Name = "Column7"
+        '
+        'Column8
+        '
+        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column8.HeaderText = "Data wizyty"
+        Me.Column8.Name = "Column8"
+        '
+        'Column9
+        '
+        Me.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column9.HeaderText = "Godzina wizyty"
+        Me.Column9.Name = "Column9"
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Controls.Add(Me.Button6)
+        Me.FlowLayoutPanel2.Controls.Add(Me.Button7)
+        Me.FlowLayoutPanel2.Controls.Add(Me.Button8)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(2, 386)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(720, 72)
+        Me.FlowLayoutPanel2.TabIndex = 0
+        '
+        'Button6
+        '
+        Me.Button6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button6.Location = New System.Drawing.Point(2, 2)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 38)
+        Me.Button6.TabIndex = 0
+        Me.Button6.Text = "Dodaj"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button7.Location = New System.Drawing.Point(81, 2)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 38)
+        Me.Button7.TabIndex = 1
+        Me.Button7.Text = "Edytuj"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Button8.Location = New System.Drawing.Point(160, 2)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 38)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "Usuń"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(660, 595)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(72, 35)
+        Me.Button4.TabIndex = 1
+        Me.Button4.Text = "Zamknij"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'btnRegister
+        '
+        Me.btnRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegister.Location = New System.Drawing.Point(2, 543)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(87, 35)
+        Me.btnRegister.TabIndex = 2
+        Me.btnRegister.Text = "Zarejestruj"
+        Me.btnRegister.UseVisualStyleBackColor = True
+        '
         'frmPacjent
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(740, 595)
+        Me.ClientSize = New System.Drawing.Size(734, 634)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.Margin = New System.Windows.Forms.Padding(2)
@@ -906,16 +906,16 @@ Partial Class frmPacjent
         Me.TabPage2.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         CType(Me.dgWizyty, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.grLeki.ResumeLayout(False)
+        CType(Me.dgLeki, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
-        Me.grLeki.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        CType(Me.dgLeki, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
