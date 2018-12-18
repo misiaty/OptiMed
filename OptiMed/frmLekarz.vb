@@ -2,7 +2,7 @@
 Imports System.Data
 Imports System.Data.SqlClient
 
-Public Class frmDoctor
+Public Class frmLekarz
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         If UserExist(Trim(txtLogin.Text)) Then

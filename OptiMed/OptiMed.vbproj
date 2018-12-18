@@ -74,10 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAdmin.vb" />
-    <Compile Include="frmDoctor.Designer.vb">
-      <DependentUpon>frmDoctor.vb</DependentUpon>
+    <Compile Include="frmLekarz.Designer.vb">
+      <DependentUpon>frmLekarz.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctor.vb">
+    <Compile Include="frmLekarz.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.vb">
@@ -93,16 +93,22 @@
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPatient.Designer.vb">
-      <DependentUpon>frmPatient.vb</DependentUpon>
+    <Compile Include="frmPacjent.Designer.vb">
+      <DependentUpon>frmPacjent.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPatient.vb">
+    <Compile Include="frmPacjent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRecipe.Designer.vb">
-      <DependentUpon>frmRecipe.vb</DependentUpon>
+    <Compile Include="frmPracownik.Designer.vb">
+      <DependentUpon>frmPracownik.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRecipe.vb">
+    <Compile Include="frmPracownik.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecepta.Designer.vb">
+      <DependentUpon>frmRecepta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecepta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modSQL.vb" />
@@ -124,8 +130,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmDoctor.resx">
-      <DependentUpon>frmDoctor.vb</DependentUpon>
+    <EmbeddedResource Include="frmLekarz.resx">
+      <DependentUpon>frmLekarz.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
@@ -133,11 +139,11 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPatient.resx">
-      <DependentUpon>frmPatient.vb</DependentUpon>
+    <EmbeddedResource Include="frmPacjent.resx">
+      <DependentUpon>frmPacjent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRecipe.resx">
-      <DependentUpon>frmRecipe.vb</DependentUpon>
+    <EmbeddedResource Include="frmRecepta.resx">
+      <DependentUpon>frmRecepta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

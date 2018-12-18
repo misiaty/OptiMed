@@ -3,7 +3,7 @@ Imports System.Data
 Imports System.Data.SqlClient
 Imports System.ComponentModel
 
-Public Class frmPatient
+Public Class frmPacjent
 
     'Dim NewRecordID As Integer
     Dim idTryb As Integer
@@ -22,7 +22,7 @@ Public Class frmPatient
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim frmR As New frmRecipe
+        Dim frmR As New frmRecepta
         frmR.Show()
     End Sub
     Private Sub UstawOkno(ByVal Tryb As Integer)
@@ -52,13 +52,13 @@ Public Class frmPatient
         sqlCom.Parameters.Add("@IdUzytkownika", SqlDbType.Int).Value = idUser
         sqlCom.Parameters.Add("@Imie", SqlDbType.VarChar).Value = Trim(txtImie.Text)
         sqlCom.Parameters.Add("@Nazwisko", SqlDbType.VarChar).Value = Trim(txtNazwisko.Text)
-        sqlCom.Parameters.Add("@DataUrodzenia", SqlDbType.Int).Value = Trim(dtDUrodzenia.Value.ToShortDateString)
+        sqlCom.Parameters.Add("@DataUrodzenia", SqlDbType.Date).Value = Trim(dtDUrodzenia.Value.ToShortDateString)
         sqlCom.Parameters.Add("@KodPocztowy", SqlDbType.VarChar).Value = Trim(txtKodP.Text)
         sqlCom.Parameters.Add("@Miejscowosc", SqlDbType.VarChar).Value = Trim(txtMiasto.Text)
-        sqlCom.Parameters.Add("@Ulica", SqlDbType.Int).Value = Trim(txtUlica.Text)
-        sqlCom.Parameters.Add("@Numer", SqlDbType.VarChar).Value = Trim(txtNrDomu.Text) & ";" & Trim(txtLokal.Text)
+        sqlCom.Parameters.Add("@Ulica", SqlDbType.VarChar).Value = Trim(txtUlica.Text)
+        sqlCom.Parameters.Add("@Numer", SqlDbType.VarChar).Value = Trim(txtNrDomu.Text) & "/" & Trim(txtLokal.Text)
         sqlCom.Parameters.Add("@Pesel", SqlDbType.VarChar).Value = Trim(mskPesel.Text)
-        sqlCom.Parameters.Add("@Email", SqlDbType.Int).Value = Trim(txtEmail.Text)
+        sqlCom.Parameters.Add("@Email", SqlDbType.VarChar).Value = Trim(txtEmail.Text)
         sqlCom.Parameters.Add("@Telefon", SqlDbType.VarChar).Value = Trim(txtTel.Text)
         sqlCom.Parameters.Add("@TelKom", SqlDbType.VarChar).Value = Trim(mskTelKom.Text)
 
@@ -101,6 +101,17 @@ Public Class frmPatient
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        If Trim(txtPassword.Text) <> Trim(txtPassword2.Text) Then
+            MsgBox("Wprowadzone hasła są różne." & vbCrLf &
+                   "Proszę wprowdzić ponownie.", vbInformation + vbOKOnly, "Błąd")
+            txtPassword.BackColor = Color.Red
+            txtPassword2.BackColor = Color.Red
+            txtPassword.Select()
+        Else
+            txtPassword.BackColor = DefaultBackColor
+            txtPassword2.BackColor = DefaultBackColor
+        End If
+
         If UserExist(Trim(txtLogin.Text)) Then
             MsgBox("Użytkownik o takiej nazwie logowania już istnieje." & vbCrLf &
                    "Proszę wprowdzić inną nazwę", vbInformation + vbOKOnly, "Błąd")
@@ -108,7 +119,7 @@ Public Class frmPatient
         End If
         If AddUser(Trim(txtLogin.Text), Trim(txtPassword.Text), 4) Then
             If DodajPacjenta(NewRecordID) Then
-                MsgBox("Lekarz został poprawnie dodany.")
+                MsgBox("Pacjent został poprawnie dodany.")
             End If
         End If
         Me.DialogResult = System.Windows.Forms.DialogResult.OK

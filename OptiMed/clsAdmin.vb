@@ -68,7 +68,9 @@ Public Class clsSQL
         cmd.Connection = oAdmin.Connection
         cmd.Parameters.Add("@login", SqlDbType.VarChar).Value = sUserName
         cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = sPassword
-        oAdmin.Connection.Open()
+        If oAdmin.Connection.State <> ConnectionState.Open Then
+            oAdmin.Connection.Open()
+        End If
         Dim result = cmd.ExecuteReader
         While result.Read
             If result.HasRows = True Then
@@ -89,7 +91,9 @@ Public Class clsSQL
         cmd.Connection = oAdmin.Connection
 
 
-        oAdmin.Connection.Open()
+        If oAdmin.Connection.State <> ConnectionState.Open Then
+            oAdmin.Connection.Open()
+        End If
 
 
         sqlDA.SelectCommand = cmd
@@ -108,7 +112,30 @@ Public Class clsSQL
         cmd.Connection = oAdmin.Connection
 
 
-        oAdmin.Connection.Open()
+        If oAdmin.Connection.State <> ConnectionState.Open Then
+            oAdmin.Connection.Open()
+        End If
+
+
+        sqlDA.SelectCommand = cmd
+        sqlDA.Fill(dbDataSet)
+
+        Return dbDataSet
+
+        oAdmin.Connection.Close()
+    End Function
+    Public Function ListaPacjentow() As DataSet
+        Dim sqlDA As New SqlDataAdapter
+        Dim sqlComm As New SqlCommand
+        Dim dbDataSet As New DataSet
+        Dim cmd = New SqlCommand("SELECT * FROM optimed.Pacjenci")
+
+        cmd.Connection = oAdmin.Connection
+
+
+        If oAdmin.Connection.State <> ConnectionState.Open Then
+            oAdmin.Connection.Open()
+        End If
 
 
         sqlDA.SelectCommand = cmd

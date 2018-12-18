@@ -30,7 +30,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim frmP As New frmPatient(0, 4)
+        Dim frmP As New frmPacjent(0, 4)
         frmP.ShowDialog()
     End Sub
 End Class
